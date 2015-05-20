@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="parse-vinspy" name="VinSpy Metadata" version="1.0" provider-name="edmunds.com">
+    <runtime>
+        <library name="parse-vinspy.jar">
+            <export name="*"/>
+        </library>
+        <library name="htmlcleaner-2.10.jar"/>
+        <library name="jdom2-2.0.5.jar"/>
+        <library name="vin-spy-domain-1.0.77.jar"/>
+    </runtime>
+
+    <extension id="com.edmunds.vinspy.parser" name="VinSpy Parser" point="org.apache.nutch.parse.ParseFilter">
+        <implementation id="InventoryAttributesParser" class="com.edmunds.vinspy.nutch.parser.InventoryAttributesParser"/>
+    </extension>
+</plugin>

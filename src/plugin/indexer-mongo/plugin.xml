@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="indexer-mongo" name="MongoIndexWriter" version="1.0.0"
+        provider-name="nutch.apache.org">
+
+    <runtime>
+        <library name="indexer-mongo.jar">
+            <export name="*"/>
+        </library>
+        <library name="htmlcleaner-2.10.jar"/>
+        <library name="mongo-java-driver-3.0.1.jar"/>
+        <library name="vin-spy-domain-1.0.77.jar"/>
+    </runtime>
+
+    <requires>
+        <import plugin="nutch-extensionpoints" />
+    </requires>
+
+    <extension id="com.edmunds.vinspy.nutch"
+               name="Mongo Index Writer"
+               point="org.apache.nutch.indexer.IndexWriter">
+        <implementation id="MongoIndexWriter"
+                        class="com.edmunds.vinspy.nutch.indexer.MongoIndexWriter" />
+    </extension>
+
+</plugin>
+
